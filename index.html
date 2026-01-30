@@ -236,19 +236,75 @@ footer{
     font-size:32px;
   }
 }
+/* HAMBURGER MENU */
+.hamburger{
+  display:none;
+  flex-direction:column;
+  cursor:pointer;
+}
+
+.hamburger span{
+  width:26px;
+  height:3px;
+  background:#0a2540;
+  margin:4px 0;
+}
+
+/* MOBILE MENU */
+@media(max-width:900px){
+  .hamburger{
+    display:flex;
+  }
+
+  .nav-links{
+    position:absolute;
+    top:64px;
+    right:0;
+    width:100%;
+    background:#ffffff;
+    flex-direction:column;
+    text-align:center;
+    display:none;
+    padding:20px 0;
+    box-shadow:0 20px 40px rgba(0,0,0,0.15);
+  }
+
+  .nav-links.show{
+    display:flex;
+  }
+
+  .nav-links li{
+    margin:12px 0;
+  }
+}
+
 </style>
 </head>
+<script>
+function toggleMenu(){
+  document.getElementById("navLinks").classList.toggle("show");
+}
+</script>
 
 <body>
 
 <nav class="navbar">
   <div class="logo">Dairy360 AI</div>
-  <ul class="nav-links">
+
+  <ul class="nav-links" id="navLinks">
     <li><a href="#features">Features</a></li>
     <li><a href="#platform">Platform</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
+
+  <!-- 3 BAR MENU -->
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
 </nav>
+
 
 <section class="hero">
   <div>
